@@ -7,13 +7,21 @@ import { ComponenteIf } from "./componente-if/componente-if";
 import { AgregarTarea } from "./agregar-tarea/agregar-tarea";
 import { ComponenteFor } from "./componente-for/componente-for";
 import { ViewChildComponent } from "./view-child/view-child";
+import { Mensaje } from './mensaje';
+import { ListadoUsuarios } from "./listado-usuarios/listado-usuarios";
 
 @Component({
   selector: 'app-root',
-  imports: [Padre, ViewChildComponent],
+  imports: [Padre, ListadoUsuarios],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   titulo = "Bienvenidos Curso Angular";
+
+  mensaje: string;
+
+  constructor(mensajeService: Mensaje){
+    this.mensaje = mensajeService.obtenerMensaje();
+  }
 }
