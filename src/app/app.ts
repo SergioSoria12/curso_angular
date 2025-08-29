@@ -12,13 +12,15 @@ import { ListadoUsuarios } from "./listado-usuarios/listado-usuarios";
 import { EjemploPipes } from "./ejemplo-pipes/ejemplo-pipes";
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { RouterOutlet } from '@angular/router';
+import { Navegacion } from "./navegacion/navegacion";
 
 // Registramos los datos de localizacion para español
 registerLocaleData(localeEs, 'es');
 
 @Component({
   selector: 'app-root',
-  imports: [Padre, ListadoUsuarios, EjemploPipes],
+  imports: [Padre, ListadoUsuarios, EjemploPipes, RouterOutlet, Navegacion],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],
   templateUrl: './app.html',
   styleUrl: './app.css'
